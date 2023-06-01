@@ -1,0 +1,46 @@
+.LogIn {
+    height: 100vh;
+    width: 100vw;
+    background-color: #eccc68;
+    position: relative;
+    display: flex;
+    display: grid;
+    place-items: center;
+}
+
+.login-wrapper {
+    height: 60%;
+    width: 20%;
+    background-color: #ffa502;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.inputl {
+    height: 20%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    position: relative;
+}
+
+.inputl>label {
+    height: 40%;
+    width: 90%;
+}
+
+.inputl>input {
+    height: 60%;
+    width: 90%;
+}
+
+.sbtn {
+    height: 10%;
+    width: 90%;
+    margin: auto;
+}

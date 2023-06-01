@@ -1,0 +1,47 @@
+.signUp {
+    height: 100vh;
+    width: 100vw;
+    background-color: #eccc68;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signUp-wrapper {
+    height: 60%;
+    width: 20%;
+    background-color: #ffa502;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-start;
+    align-items: flex-start; */
+    position: relative;
+}
+
+.inputs {
+    height: 15%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    position: relative;
+}
+
+.inputs>label {
+    height: 50%;
+    width: 90%;
+}
+
+.inputs>input {
+    height: 50%;
+    width: 90%;
+}
+
+.sbtn {
+    height: 10%;
+    width: 90%;
+    margin: auto;
+}
