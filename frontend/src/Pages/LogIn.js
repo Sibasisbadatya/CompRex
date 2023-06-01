@@ -50,6 +50,7 @@ const Login = () => {
             if (data.message === "sign in succesfully") {
                 toast.success("Logged In Succesfully", toastOptions);
                 window.localStorage.setItem("resemail", email);
+                window.localStorage.setItem("resname", data.name);
                 window.location.href = "./image";
             }
             else if (data.message === "Invalid Credenials")

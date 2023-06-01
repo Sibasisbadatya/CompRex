@@ -54,10 +54,7 @@ const File = () => {
         })
         const data = await res.json();
         setSpic(data);
-        // console.log(data);
     }
-
-  
     useEffect(() => {
         getReply()
     }, [])
@@ -98,7 +95,7 @@ const File = () => {
             <div className='main-bg'>
                 <div className="main-wrapper">
                     <div className="left">
-                        <div className="name"> <span>Hii {userName} </span> <span>Your Pictures</span><button className='logout-btn' onClick={() => {
+                        <div className="name"> <span>Hii{userName} </span> <span>Your Pictures</span><button className='logout-btn' onClick={() => {
                             window.localStorage.clear();
                             window.location.href = "./"
                         }}>Logout</button> </div>
