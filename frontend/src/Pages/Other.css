@@ -47,3 +47,8 @@
     height: 5vh;
     background-color: aliceblue;
 }
+@media screen and (max-width:460px) {
+    .otherpic {
+        max-width: 100%;
+    }
+}

@@ -57,11 +57,13 @@ const Other = () => {
             })
         })
         const data = await res.json();
-        console.log("data", data);
-        if (data.length > 1)
+        // console.log("data1", data);
+        if (data.length == 0)
+            toast.warning("Nothing To See", toastOptions);
+        else if (data.length > 1)
             setImage(data);
         else
-            setImage([data]);
+            setImage(data);
     }
     // addreply
 
@@ -74,7 +76,7 @@ const Other = () => {
             <div className='other'>
                 <div className="other-wrapper">
                     {
-                        image.map((elem, index) => {
+                       image && image.map((elem, index) => {
                             return (
                                 <>
                                     <div className='otherpic'>
