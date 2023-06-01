@@ -44,3 +44,12 @@
     width: 90%;
     margin: auto;
 }
+
+@media screen and (max-width:460px) {
+    .login-wrapper {
+        height: 60%;
+        width: 70%;
+        align-self: flex-start;
+        top: 10vh;
+    }
+}
