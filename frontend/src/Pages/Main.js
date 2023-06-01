@@ -30,7 +30,7 @@ const File = () => {
     const [reply, setReply] = useState([]);
     const getReply = async () => {
         // e.preventDefault();
-        const res = await fetch("http://localhost:8000/getreply", {
+        const res = await fetch("https://comprex.onrender.com/getreply", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -43,7 +43,7 @@ const File = () => {
         setReply(data.data);
     }
     const getProfile = async () => {
-        const res = await fetch("http://localhost:8000/getprofile", {
+        const res = await fetch("https://comprex.onrender.com/getprofile", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -57,11 +57,12 @@ const File = () => {
         // console.log(data);
     }
 
-    useEffect(() => {
-        getProfile()
-    }, [])
+  
     useEffect(() => {
         getReply()
+    }, [])
+    useEffect(() => {
+        getProfile()
     }, [])
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -69,7 +70,7 @@ const File = () => {
         formData.append('photo', newUser.photo);
         formData.append('name', newUser.name);
         formData.append('email', userEmail);
-        axios.post('http://localhost:8000/photo', formData)
+        axios.post('https://comprex.onrender.com/photo', formData)
             .then(res => {
                 console.log(res);
                 if (res.data === "User Added") {
@@ -97,14 +98,17 @@ const File = () => {
             <div className='main-bg'>
                 <div className="main-wrapper">
                     <div className="left">
-                        <div className="name">{userName}</div>
+                        <div className="name"> <span>Hii {userName} </span> <span>Your Pictures</span><button className='logout-btn' onClick={() => {
+                            window.localStorage.clear();
+                            window.location.href = "./"
+                        }}>Logout</button> </div>
                         <div className="profile">
                             {
                                 spic.map((elem, index) => {
                                     return (
                                         <>
                                             <div className='ind-pic' key={index}>
-                                                <img className='ppic' src={`http://localhost:8000/images/${elem.photo}`} alt="" />
+                                                <img className='ppic' src={`https://comprex.onrender.com/images/${elem.photo}`} alt="" />
                                                 <span className='pname'>{elem.name}</span>
                                             </div>
                                         </>
@@ -121,17 +125,18 @@ const File = () => {
                             />
                             <input
                                 type="text"
-                                placeholder="name"
+                                placeholder="Enter pic name you want to give"
                                 name="name"
                                 value={newUser.name}
                                 onChange={handleChange}
                             />
-                            <input
+                            <input style={{backgroundColor:"aquamarine"}}
                                 type="submit"
                             />
                         </form>
                     </div>
                     <div className="right">
+                        <div className="comment">Comments to Your Photos</div>
                         {
                             reply.map((elem, index) => {
                                 return (
@@ -143,6 +148,7 @@ const File = () => {
                                 )
                             })
                         }
+                        <div className="other-page-btn" onClick={() => { window.location.href = "./other" }}>See Others Photos</div>
                     </div>
                 </div>
                 <ToastContainer />

@@ -19,7 +19,7 @@ const Other = () => {
         window.location.href = "./";
     const postSubmit = async (value, email, name) => {
         console.log(name);
-        const res = await fetch("http://localhost:8000/addreply", {
+        const res = await fetch("https://comprex.onrender.com/addreply", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -33,9 +33,9 @@ const Other = () => {
         })
         const data = await res.json();
         console.log(data);
-        if (data === "Reply Sended") {
-            console.log("yes added");
+        if (data == "Reply Sended") {
             toast.success("Reply Sent", toastOptions);
+            window.location.href = './other';
         }
     };
 
@@ -47,7 +47,7 @@ const Other = () => {
         // console.log(image[index].value);
     };
     const getImage = async () => {
-        const res = await fetch("http://localhost:8000/getimage", {
+        const res = await fetch("https://comprex.onrender.com/getimage", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -57,7 +57,7 @@ const Other = () => {
             })
         })
         const data = await res.json();
-        console.log(data);
+        console.log("data", data);
         if (data.length > 1)
             setImage(data);
         else
@@ -78,18 +78,19 @@ const Other = () => {
                             return (
                                 <>
                                     <div className='otherpic'>
-                                        <span className='other-name'>{elem.name}</span>
-                                        <img src={`http://localhost:8000/images/${elem.photo}`} alt={elem.photo} />
-                                        <input type="text" name='msg' onChange={(e) => {
+                                        <span className='other-name'>{elem.email} --- {elem.name}</span>
+                                        <img src={`https://comprex.onrender.com/images/${elem.photo}`} alt={elem.photo} />
+                                        <input className='oinput' type="text" name='msg' onChange={(e) => {
                                             handleInputChange(index, e.target.value)
                                         }} value={elem.value} placeholder='Reply To This Post' />
-                                        <button onClick={() => { postSubmit(elem.value, elem.email, elem.name) }}>Submit</button>
+                                        <button className='obtn' onClick={() => { postSubmit(elem.value, elem.email, elem.name) }}>Submit</button>
                                     </div>
                                 </>
                             )
                         })
                     }
                 </div>
+                <ToastContainer />
             </div>
         </>
     )

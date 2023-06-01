@@ -8,6 +8,8 @@ import "./LogIn.css";
 // import loader from "../Images/loader";
 import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
+    if (window.localStorage.getItem("pic-token"))
+        window.location.href = "./image";
     const toastOptions = {
         position: "bottom-right",
         autoClose: "5000",
@@ -32,7 +34,7 @@ const Login = () => {
             toast.error("Enter Details Properly", toastOptions);
         }
         else if (email && password) {
-            const res = await fetch("http://localhost:8000/login", {
+            const res = await fetch("https://comprex.onrender.com/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -47,7 +49,6 @@ const Login = () => {
             console.log(data);
             if (data.message === "sign in succesfully") {
                 toast.success("Logged In Succesfully", toastOptions);
-                window.localStorage.setItem("resname", name);
                 window.localStorage.setItem("resemail", email);
                 window.location.href = "./image";
             }

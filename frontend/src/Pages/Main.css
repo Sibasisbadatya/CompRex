@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
 .main-bg {
     height: 100vh;
     width: 100vw;
@@ -30,6 +32,27 @@
 .name {
     height: 10%;
     width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 1rem;
+    background-color: #686de0;
+    margin: auto;
+    font-family: 'Josefin Sans', sans-serif;
+    position: relative;
+}
+
+.name>span {
+    font-size: 1.5rem;
+    color: aliceblue;
+}
+
+.logout-btn {
+    height: 70%;
+    width: 25%;
+    background-color: #ff7979;
+    cursor: pointer;
 }
 
 .profile {
@@ -55,6 +78,8 @@
     align-items: center;
     flex-direction: column;
     background-color: #95afc0;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #130f40;
 }
 
 .ppic {
@@ -85,6 +110,11 @@
     width: 30%;
     height: 70%;
     margin-bottom: 0rem;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.user-form>.pic-submit {
+    background-color: aquamarine;
 }
 
 .right {
@@ -100,11 +130,48 @@
 }
 
 .reply-div {
-    min-height: fit-content;
+    overflow: auto;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     box-sizing: border-box;
     padding: 0.5rem;
     width: 95%;
     background-color: #30336b;
     color: aliceblue;
     margin: auto;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.comment {
+    width: 95%;
+    height: 10%;
+    align-self: auto;
+    margin: auto;
+    display: flex;
+    position: absolute;
+    top: 1rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+    align-items: center;
+    background-color: #686de0;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.5rem;
+}
+
+.other-page-btn {
+    height: 7%;
+    background-color: #686de0;
+    width: 95%;
+    margin: auto;
+    position: absolute;
+    bottom: 0.5rem;
+    right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'Josefin Sans', sans-serif;
 }

@@ -33,7 +33,7 @@ const SignUp = () => {
             toast.error("Enter your Password Properly", toastOptions)
         }
         else if (name && email && password && cpassword) {
-            const res = await fetch("http://localhost:8000/register", {
+            const res = await fetch("https://comprex.onrender.com/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -49,7 +49,7 @@ const SignUp = () => {
                 window.localStorage.setItem("resname", name);
                 window.localStorage.setItem("resemail", email);
                 toast.success("User Registered", toastOptions);
-                window.location.href = "./image";
+                window.location.href = "./";
             }
             if (data.message === "Failed to register")
                 toast.warning("Failed to register", toastOptions)

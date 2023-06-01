@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
 .other {
     height: 100vh;
     width: 100vw;
@@ -28,9 +30,20 @@
     flex-direction: column;
     box-sizing: border-box;
     padding: 1rem;
-    background-color:#130f40;
+    background-color: #130f40;
     margin-bottom: 3rem;
+    font-family: 'Josefin Sans', sans-serif;
 }
-.other-name{
+
+.other-name {
+    height: 5vh;
     color: aliceblue;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.oinput{
+    height: 5vh;
+}
+.obtn{
+    height: 5vh;
+    background-color: aliceblue;
 }
