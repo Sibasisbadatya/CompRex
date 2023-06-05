@@ -79,7 +79,7 @@ const File = () => {
         formData.append('photo', newUser.photo);
         formData.append('name', newUser.name);
         formData.append('email', userEmail);
-        if (!formData.photo || !formData.name) {
+        if (!userUser.photo || !newUser.name) {
             toast.error("Enter all the details", toastOptions);
             return;
         }
