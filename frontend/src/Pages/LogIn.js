@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "./LogIn.css";
 // import loader from "../Images/loader";
 import 'react-toastify/dist/ReactToastify.css';
+import {host} from "../URL/Url";
 const Login = () => {
     if (window.localStorage.getItem("pic-token"))
         window.location.href = "./image";
@@ -34,7 +35,7 @@ const Login = () => {
             toast.error("Enter Details Properly", toastOptions);
         }
         else if (email && password) {
-            const res = await fetch("https://comprex.onrender.com/login", {
+            const res = await fetch(`${host}/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

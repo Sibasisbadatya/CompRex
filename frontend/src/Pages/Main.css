@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
-body,html{
-    margin:0;
-    padding:0;
-  }
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
 .main-bg {
     min-height: 100vh;
     width: 100vw;
@@ -62,41 +64,51 @@ body,html{
 
 .profile {
     height: 70%;
-    width: 90%;
+    width: 95%;
+    background-color: #130f40;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
     overflow: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    box-sizing: border-box;
+    padding: 2rem;
 }
 
 .ind-pic {
-    height: 60%;
-    width: 40%;
-    margin: 1rem;
-    position: relative;
-    background-size: fit-content;
+    height: auto;
+    width: 95%;
     display: flex;
-    box-sizing: border-box;
-    padding: 0.5rem;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    background-color: #95afc0;
+    box-sizing: border-box;
+    padding: 1rem;
+    margin-bottom: 3rem;
     font-family: 'Josefin Sans', sans-serif;
+    background-color: #95afc0;
     color: #130f40;
 }
 
 .ppic {
-    height: 85%;
+    margin: auto;
+    height: auto;
     width: 90%;
     border: 2px solid #130f40;
 }
 
 .pname {
-    height: 10%;
+    height: 5vh;
     width: 90%;
-    color: antiquewhite;
+    color:#182C61;
+    font-weight: bolder;
+    margin: auto;
+}
+
+.see-cmt {
+    height: 5vh;
+    width: 90%;
+    color: black;
+    background-color: #ff7979;
+    margin: auto;
 }
 
 .user-form {
@@ -132,23 +144,39 @@ body,html{
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
+    justify-content: start;
+    align-items: start;
     overflow: auto;
 }
 
 .reply-div {
     overflow: auto;
-    height: 10%;
+    height: 70%;
+    width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
     align-items: center;
     flex-wrap: wrap;
     box-sizing: border-box;
     padding: 0.5rem;
-    width: 95%;
-    background-color: #30336b;
+    background-color: #130f40;
     color: aliceblue;
     margin: auto;
+}
+
+.ind-reply-div {
+    height: 12%;
+    width: 95%;
+    margin-bottom: 1rem;
+    color: #182C61;
+    font-size: 1.5rem;
     font-family: 'Josefin Sans', sans-serif;
+    background-color: #1B9CFC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .comment {
@@ -187,6 +215,7 @@ body,html{
         min-height: 100vh;
         overflow: scroll;
     }
+
     .main-wrapper {
         height: 95%;
         width: 95%;
@@ -195,32 +224,45 @@ body,html{
         box-sizing: border-box;
         padding: 1rem 0.5rem;
     }
+
     .left {
         height: 100vh;
         min-height: -webkit-fill-available;
         width: 90%;
         margin-bottom: 1rem;
     }
+
     .right {
         height: 100vh;
         min-height: -webkit-fill-available;
         width: 90%;
     }
-    .ind-pic {
-        min-height: 40%;
-        min-width: 60%;
-    }
+
     .profile {
         flex-direction: column;
         align-items: center;
     }
+
+    .ind-reply-div {
+        font-size: 0.8rem;
+        box-sizing: border-box;
+        padding: 5px;
+    }
+
+    .see-cmt {
+        font-size: 0.7rem;
+        font-family: 'Josefin Sans', sans-serif;
+    }
+
     .name>span {
         font-size: 0.9rem;
         color: aliceblue;
     }
+
     .logout-btn {
         height: 60%;
     }
+
     .user-form>input {
         width: 30%;
         height: 60%;

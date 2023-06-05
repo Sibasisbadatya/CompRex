@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { ToastContainer, toast } from "react-toastify";
 // import loader from "../Images/loader";
 import 'react-toastify/dist/ReactToastify.css';
-
+import {host} from "../URL/Url";
 const SignUp = () => {
     const toastOptions = {
         position: "bottom-right",
@@ -33,7 +33,7 @@ const SignUp = () => {
             toast.error("Enter your Password Properly", toastOptions)
         }
         else if (name && email && password && cpassword) {
-            const res = await fetch("https://comprex.onrender.com/register", {
+            const res = await fetch(`${host}/register`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

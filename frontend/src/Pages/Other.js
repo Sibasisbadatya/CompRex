@@ -2,6 +2,7 @@ import React from 'react';
 import "./Other.css";
 import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import {host} from "../URL/Url";
 const Other = () => {
     const toastOptions = {
         position: "bottom-right",
@@ -19,7 +20,7 @@ const Other = () => {
         window.location.href = "./";
     const postSubmit = async (value, email, name) => {
         console.log(name);
-        const res = await fetch("https://comprex.onrender.com/addreply", {
+        const res = await fetch(`${host}/addreply`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -47,7 +48,7 @@ const Other = () => {
         // console.log(image[index].value);
     };
     const getImage = async () => {
-        const res = await fetch("https://comprex.onrender.com/getimage", {
+        const res = await fetch(`${host}/getimage`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -81,7 +82,7 @@ const Other = () => {
                                 <>
                                     <div className='otherpic'>
                                         <span className='other-name'>{elem.email} --- {elem.name}</span>
-                                        <img src={`https://comprex.onrender.com/images/${elem.photo}`} alt={elem.photo} />
+                                        <img src={`${host}/images/${elem.photo}`} alt={elem.photo} />
                                         <input className='oinput' type="text" name='msg' onChange={(e) => {
                                             handleInputChange(index, e.target.value)
                                         }} value={elem.value} placeholder='Reply To This Post' />
