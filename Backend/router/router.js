@@ -17,7 +17,6 @@ require("../DB/connection");
 
 router.post("/register", async (req, res) => {
     const { name, email, password, cpassword } = req.body;
-    console.log("yes");
     try {
         const userExist = await User.findOne({ email: email });
         if (userExist) {
@@ -49,10 +48,8 @@ router.post("/login", async (req, res) => {
         if (!userLogin) {
             return res.json({ message: "Invalid Credenials" })
         }
-        // console.log(userLogin.regdno);
         if (userLogin.password == password) {
             token = await userLogin.generateAuthToken();
-            console.log("token returned", token);
             res.json({
                 message: "sign in succesfully", status: 201, token: token, name: userLogin.name
             });
@@ -104,9 +101,7 @@ router.route('/photo').post(upload.single('photo'), async (req, res) => {
         res.json({ msg: "This Name is Already Used" })
     }
     else {
-        console.log(newUserData);
         const newUser = new Image(newUserData);
-        console.log(newUser);
         newUser.save()
             .then(() => res.json('User Added'))
             .catch(err => res.status(400).json('Error: ' + err));
@@ -116,7 +111,6 @@ router.route('/photo').post(upload.single('photo'), async (req, res) => {
 router.post("/getimage", async (req, res) => {
     try {
         const email = req.body.email;
-        console.log(email);
         const users = await Image.find({ email: { $ne: email } })
             .select([
                 "name",
@@ -125,7 +119,6 @@ router.post("/getimage", async (req, res) => {
                 "value",
                 "email"
             ])
-        console.log(users);
         res.json(users);
     } catch (e) {
         console.log(e);
@@ -135,7 +128,6 @@ router.post("/getimage", async (req, res) => {
 router.post("/getprofile", async (req, res) => {
     try {
         const email = req.body.email;
-        console.log(email);
         const users = await Image.find({ email: email })
             .select([
                 "name",
@@ -144,7 +136,6 @@ router.post("/getprofile", async (req, res) => {
                 "value",
                 "email"
             ])
-        // console.log(users);
         res.json(users);
     } catch (e) {
         console.log(e);
@@ -165,11 +156,21 @@ router.post("/addreply", async (req, res) => {
         console.log(err);
     }
 })
+// router.post("/getreply", async (req, res) => {
+//     try {
+//         const { email } = req.body;
+//         const reply = await Reply.find({ to: email });
+//         res.json({ data:reply })
+//     }
+//     catch (err) {
+//         console.log(err);
+//     }
+// })
 router.post("/getreply", async (req, res) => {
     try {
-        const { email } = req.body;
-        const reply = await Reply.find({ to: email });
-        res.json({ data:reply })
+        const { name } = req.body;
+        const reply = await Reply.find({ name });
+        res.json(reply)
     }
     catch (err) {
         console.log(err);
