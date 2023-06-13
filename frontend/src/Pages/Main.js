@@ -103,7 +103,9 @@ const File = () => {
     }
 
     const handlePhoto = (e) => {
+        console.log(e.target.files[0]);
         setNewUser({ ...newUser, photo: e.target.files[0] });
+        console.log(newUser.photo);
     }
 
     return (
@@ -111,7 +113,7 @@ const File = () => {
             <div className='main-bg'>
                 <div className="main-wrapper">
                     <div className="left">
-                        <div className="name"> <span>Hii {userName} </span> <span>Your Pictures</span><button className='logout-btn' onClick={() => {
+                        <div className="name"> <span>Hii {userName} </span> <button className='logout-btn' style={{ backgroundColor: "#fd79a8" }} onClick={()=>{window.location.href="/chart"}}><span>Your Pictures</span></button><button className='logout-btn' onClick={() => {
                             window.localStorage.clear();
                             window.location.href = "./"
                         }}>Logout</button> </div>

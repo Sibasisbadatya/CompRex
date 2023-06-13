@@ -71,7 +71,6 @@ const storage = multer.diskStorage({
     }
 });
 
-
 const fileFilter = (req, file, cb) => {
     const allowedFileTypes = ['image/jpeg', 'image/jpg', 'image/png'];
     if (allowedFileTypes.includes(file.mimetype)) {
@@ -82,13 +81,11 @@ const fileFilter = (req, file, cb) => {
 }
 
 let upload = multer({ storage, fileFilter });
-// const upload = multer({ storage: storage });
 router.route('/photo').post(upload.single('photo'), async (req, res) => {
     const name = req.body.name;
     const email = req.body.email;
     const birthdate = req.body.birthdate;
     const photo = req.file.filename;
-
     const newUserData = {
         email,
         name,
@@ -154,6 +151,20 @@ router.post("/addreply", async (req, res) => {
     }
     catch (err) {
         console.log(err);
+    }
+})
+
+router.post("/getcomments", async (req, res) => {
+    try {
+        const to = req.body.to;
+        const users = await Reply.find({ to }).select([
+            "to",
+            "from",
+            "name"
+        ])
+        res.json(users);
+    } catch (e) {
+        console.log(e);
     }
 })
 // router.post("/getreply", async (req, res) => {

@@ -34,11 +34,8 @@ userSchema.methods.generateAuthToken = async function () {
         const token = jwt.sign({
             _id: this._id
         }, "SibasisBadatyaRealTimeChatAppForUsers");
-        console.log(token);
         this.tokens = this.tokens.concat({ token: token });
-        console.log("token saved");
         await this.save();
-        console.log("token");
         return token;
     } catch (err) {
         console.log(err);
